@@ -1,12 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import JournalScreen from "../component/journal/JournalScreen";
+import AuthRouter from "./AuthRouter";
 
 const App = () => {
   return (
     <>
       <Switch>
-        <Route path="/auth"></Route>
-        <Route path="/*"></Route>
+        <Route path="/auth" component={<AuthRouter />} />
+        <Route path="/auth" componet={<JournalScreen />} />
       </Switch>
     </>
   );
