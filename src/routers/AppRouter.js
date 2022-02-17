@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import JournalScreen from "../component/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 
@@ -10,7 +15,8 @@ const AppRouter = () => {
         <div>
           <Switch>
             <Route path="/auth" component={AuthRouter} />
-            <Route path="/" component={JournalScreen} />\
+            <Route path="/" component={JournalScreen} />
+            <Redirect to="/auth/login" />
           </Switch>
         </div>
       </Router>
