@@ -31,7 +31,7 @@ const RegisterScreen = () => {
         <input
           className="auth__input"
           type="password"
-          placeholder="Password Confirmation"
+          placeholder="Confirm Password"
           name="password_confirmation"
           autoComplete="off"
         ></input>
@@ -39,7 +39,7 @@ const RegisterScreen = () => {
           Login
         </button>
 
-        <Link to="/auth/register" className="link mt-5">
+        <Link to="/auth/login" className="link mt-5">
           Already registered?
         </Link>
       </form>
