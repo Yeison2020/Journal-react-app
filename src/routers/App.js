@@ -6,10 +6,12 @@ import AuthRouter from "./AuthRouter";
 const App = () => {
   return (
     <>
-      <Switch>
-        <Route path="/auth" component={<AuthRouter />} />
-        <Route path="/auth" componet={<JournalScreen />} />
-      </Switch>
+      <Router>
+        <Switch>
+          <Route path="/auth" component={<AuthRouter />} />
+          <Route path="/" componet={<JournalScreen />} />\
+        </Switch>
+      </Router>
     </>
   );
 };

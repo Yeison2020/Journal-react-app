@@ -1,7 +1,12 @@
 import React from "react";
+import App from "./routers/App";
 
 const JournalApp = () => {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <App />
+    </>
+  );
 };
 
 export default JournalApp;
