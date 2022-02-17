@@ -8,19 +8,21 @@ const LoginScreen = () => {
         <input
           className="auth__input"
           type="text"
-          placeholder="email"
+          placeholder="Email"
           name="email"
           autoComplete="off"
         ></input>
         <input
           className="auth__input"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
           autoComplete="off"
         ></input>
-        <button type="submit">Login</button>
-        <hr />
+        <button type="submit" className="btn btn-primary btn-block">
+          Login
+        </button>
+
         <div className="auth__social-networks">
           <p>Login with social google</p>
           <div className="google-btn">
