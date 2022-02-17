@@ -4,12 +4,14 @@ import LoginScreen from "../component/auth/LoginScreen";
 import RegisterScreen from "../component/auth/RegisterScreen";
 const AuthRouter = () => {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/auth/login" component={LoginScreen} />
-        <Route path="/auth/register" component={RegisterScreen} />
-        <Redirect to="/auth/login" />
-      </Switch>
+    <div className="auth__main">
+      <div className="auth__box-container">
+        <Switch>
+          <Route exact path="/auth/login" component={LoginScreen} />
+          <Route path="/auth/register" component={RegisterScreen} />
+          <Redirect to="/auth/login" />
+        </Switch>
+      </div>
     </div>
   );
 };
