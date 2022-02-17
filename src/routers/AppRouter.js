@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import JournalScreen from "../component/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 
-const App = () => {
+const AppRouter = () => {
   return (
     <>
       <Router>
-        <Switch>
-          <Route path="/auth" component={<AuthRouter />} />
-          <Route path="/" componet={<JournalScreen />} />\
-        </Switch>
+        <div>
+          <Switch>
+            <Route path="/auth" component={AuthRouter} />
+            <Route path="/" component={JournalScreen} />\
+          </Switch>
+        </div>
       </Router>
     </>
   );
 };
 
-export default App;
+export default AppRouter;

@@ -1,10 +1,10 @@
 import React from "react";
-import App from "./routers/App";
+import AppRouter from "./routers/AppRouter";
 
 const JournalApp = () => {
   return (
     <>
-      <App />
+      <AppRouter />
     </>
   );
 };
