@@ -1,4 +1,4 @@
-.journal__main-conten {
+.journal__main-content {
   display: flex;
 }
 
@@ -38,12 +38,14 @@
 }
 
 // This flex: 1 1 auto => allow me to grow with the rest of remaining space;
+// Note overflox hidden here
 
 .journal__entries {
   margin-top: 30px;
   flex: 1 1 auto;
-
+  // Check out this later
   overflow-y: scroll;
+  overflow: hidden;
 }
 
 .journal__entry {
@@ -53,12 +55,11 @@
   color: $dark-grey;
   display: flex;
   margin-bottom: 10px;
-  overflow-y: hidden;
 }
-
+// Need to work on image resizing part
 .journal__entry-picture {
-  height: 75px;
-  width: 75px;
+  height: 85px;
+  width: 200px;
 }
 
 .journal__entry-body {
@@ -84,6 +85,6 @@
   margin: 5px;
 }
 
-.journal__entry-date-box {
+.journal__entry-date-box span {
   font-size: 12px;
 }
