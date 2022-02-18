@@ -12,3 +12,35 @@
   display: flex;
   justify-content: space-between;
 }
+
+.note__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+}
+
+.note__title-input,
+.notes__text-area {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.note__title-input {
+  color: $dark-grey;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.notes__text-area {
+  border: 1px solid black;
+  color: $dark-grey;
+  font-size: 20px;
+  flex: 1 1 auto;
+
+  // This remove the icon in the corner
+  resize: none;
+}
