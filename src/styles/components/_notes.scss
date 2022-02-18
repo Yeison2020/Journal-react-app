@@ -36,11 +36,15 @@
 }
 
 .notes__text-area {
-  border: 1px solid black;
   color: $dark-grey;
   font-size: 20px;
   flex: 1 1 auto;
 
   // This remove the icon in the corner
   resize: none;
+}
+
+.note__image img {
+  box-shadow: 5px 5px $dark-grey;
+  height: 150px;
 }
