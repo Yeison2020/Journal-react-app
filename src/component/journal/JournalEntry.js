@@ -19,6 +19,10 @@ const JournalEntry = () => {
           nulla do ea aliquip culpa. Fugiat nisi officia officia cillum aliquip
           pariatur ipsum et ex incididunt.
         </p>
+        <div className="journal__entry-date-box">
+          <span>Friday</span>
+          <h4>18</h4>
+        </div>
       </div>
     </div>
   );
