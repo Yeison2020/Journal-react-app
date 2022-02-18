@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import LoginScreen from "../component/auth/LoginScreen";
-import RegisterScreen from "../component/auth/RegisterScreen";
+import LoginScreen from "../components/auth/LoginScreen";
+import RegisterScreen from "../components/auth/RegisterScreen";
 const AuthRouter = () => {
   return (
     <div className="auth__main">

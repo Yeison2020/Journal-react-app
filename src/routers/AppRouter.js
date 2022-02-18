@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import JournalScreen from "../component/journal/JournalScreen";
+import JournalScreen from "../components/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 
 const AppRouter = () => {
