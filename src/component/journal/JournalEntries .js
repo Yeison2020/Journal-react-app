@@ -6,7 +6,7 @@ const JournalEntries = () => {
   return (
     <div className="journal__entries">
       {entries.map((value) => {
-        return <JournalEntry key={value} value={value} />;
+        return <JournalEntry key={value} />;
       })}
     </div>
   );
