@@ -1,9 +1,10 @@
 import React from "react";
+import JournalEntries from "./JournalEntries ";
 
 const Sidebar = () => {
   return (
     <aside className="journal__sidebar">
-      <div className="journa__sidebar-navbar">
+      <div className="journal__sidebar-navbar">
         <h3 className="mt-5">
           <i className="far fa-moon"></i>
           <span> Yeison Casado</span>
@@ -14,6 +15,7 @@ const Sidebar = () => {
         <i className="fa fa-calendar-plus fa-5x"></i>
         <p className="mt-5">New Entry</p>
       </div>
+      <JournalEntries />
     </aside>
   );
 };
