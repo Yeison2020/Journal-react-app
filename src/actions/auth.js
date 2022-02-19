@@ -3,7 +3,7 @@ import types from "../types/types";
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
     setTimeout(() => {
-      dispatch(login(123, "enmanue"));
+      dispatch(login(email, password));
     }, 3500);
   };
 };
