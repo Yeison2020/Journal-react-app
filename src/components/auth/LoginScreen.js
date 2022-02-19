@@ -1,16 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 const LoginScreen = () => {
+  const [values, handleInputChange, reset] = useForm({
+    email: "enmanuelquiterios@gmail.com",
+    password: 123456,
+  });
+
+  const { email, password } = values;
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    console.log(email, password);
+  };
+
   return (
     <>
       <h3 className="auth__title">Login</h3>
-      <form>
+      <form onSubmit={handleLogin}>
         <input
           className="auth__input"
           type="text"
           placeholder="Email"
           name="email"
           autoComplete="off"
+          value={email}
+          onChange={handleInputChange}
         ></input>
         <input
           className="auth__input"
@@ -18,6 +33,8 @@ const LoginScreen = () => {
           placeholder="Password"
           name="password"
           autoComplete="off"
+          value={password}
+          onChange={handleInputChange}
         ></input>
         <button type="submit" className="btn btn-primary btn-block">
           Login
