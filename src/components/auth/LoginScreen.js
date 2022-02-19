@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { login } from "../../actions/auth";
 const LoginScreen = () => {
+  const dispatch = useDispatch();
   const [values, handleInputChange, reset] = useForm({
     email: "enmanuelquiterios@gmail.com",
     password: 123456,
@@ -10,6 +13,9 @@ const LoginScreen = () => {
   const { email, password } = values;
   const handleLogin = (e) => {
     e.preventDefault();
+
+    // Here the dispatch get acess to my store and changes state in redux
+    dispatch(login(12345, "Enmanuel"));
 
     console.log(email, password);
   };
