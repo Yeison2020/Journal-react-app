@@ -46,7 +46,7 @@ const RegisterScreen = () => {
     }
   };
   const handleRegisterClick = () => {
-    dispatch(startRegisterWithNameEmailPassowrd(email, password));
+    dispatch(startRegisterWithNameEmailPassowrd(email, password, name));
   };
   return (
     <>

@@ -16,8 +16,16 @@ export const startRegisterWithNameEmailPassowrd = (email, password, name) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(({ newUser }) => {
-        dispatch(login(newUser.uid, newUser.displayName));
+      .then(async ({ user }) => {
+        // I needed to add async here to wait for display name promise
+        await user.updateProfile({
+          displayName: name,
+        });
+        console.log(user);
+        // dispatch(login(user.uid, user.displayName));
+      })
+      .catch((e) => {
+        console.log(e);
       });
   };
 };
