@@ -9,6 +9,19 @@ export const startLoginEmailPassword = (email, password) => {
   };
 };
 
+// Register functions
+
+export const startRegisterWithNameEmailPassowrd = (email, password, name) => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(({ newUser }) => {
+        dispatch(login(newUser.uid, newUser.displayName));
+      });
+  };
+};
+
 // This the code encharge of auth using Google and return a promise
 
 export const startGoogleLogin = () => {

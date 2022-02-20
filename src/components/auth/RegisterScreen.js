@@ -4,6 +4,7 @@ import { useForm } from "../../hooks/useForm";
 import validator from "validator";
 import { useDispatch, useSelector } from "react-redux";
 import { setError, removeError } from "../../actions/ui";
+import { startRegisterWithNameEmailPassowrd } from "../../actions/auth";
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const RegisterScreen = () => {
   });
 
   const { name, email, password, password2 } = values;
+
   const isFormValid = () => {
     if (name.trim().length === 0) {
       dispatch(setError("Name is requiered"));
@@ -42,6 +44,9 @@ const RegisterScreen = () => {
     if (isFormValid()) {
       console.log("Form is Corrent");
     }
+  };
+  const handleRegisterClick = () => {
+    dispatch(startRegisterWithNameEmailPassowrd(email, password));
   };
   return (
     <>
@@ -85,7 +90,11 @@ const RegisterScreen = () => {
           value={password2}
           onChange={handleInputChange}
         ></input>
-        <button type="submit" className="btn btn-primary btn-block mb-5">
+        <button
+          type="submit"
+          className="btn btn-primary btn-block mb-5"
+          onClick={handleRegisterClick}
+        >
           Login
         </button>
 
