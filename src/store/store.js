@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { authReducer } from "../reducers/authReducer";
+import { uiReducer } from "../reducers/uiReducer";
 import thunk from "redux-thunk";
 // Here using combine reducer allow me to combine different reducers It's recommended to avoid to refactor later when adding others reducers.
 
@@ -13,6 +14,7 @@ const composeEnhancers =
 
 const reducers = combineReducers({
   auth: authReducer,
+  ui: uiReducer,
 });
 export const store = createStore(
   reducers,
