@@ -1,12 +1,13 @@
 import types from "../types/types";
 import { firebase, googleAuthProvider } from "../firebase/firebaseConfig";
 // Note aadding the dispatch make our app to be asyn and wait for certains actions
-export const startLoginEmailPassword = (email, password) => {
+export const startLoginEmailPassword = (email, password, setter) => {
   return (dispatch) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
+        setter((curr) => (curr = true));
         dispatch(login(user.uid, user.displayName));
       })
       .then((e) => {
