@@ -3,9 +3,15 @@ import { firebase, googleAuthProvider } from "../firebase/firebaseConfig";
 // Note aadding the dispatch make our app to be asyn and wait for certains actions
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(email, password));
-    }, 3500);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
+      })
+      .then((e) => {
+        console.log(e);
+      });
   };
 };
 
@@ -22,7 +28,7 @@ export const startRegisterWithNameEmailPassowrd = (email, password, name) => {
           displayName: name,
         });
         console.log(user);
-        // dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName));
       })
       .catch((e) => {
         console.log(e);
