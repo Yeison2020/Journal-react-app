@@ -1,4 +1,5 @@
 import types from "../types/types";
+import Swal from "sweetalert2";
 import { firebase, googleAuthProvider } from "../firebase/firebaseConfig";
 // Note aadding the dispatch make our app to be asyn and wait for certains actions
 export const startLoginEmailPassword = (email, password) => {
@@ -14,6 +15,11 @@ export const startLoginEmailPassword = (email, password) => {
       })
       .then((e) => {
         console.log(e);
+      })
+      .catch((error) => {
+        dispatch(finishLoading());
+        Swal.fire("Fail", error.message, "error");
+        console.log(error);
       });
   };
 };
@@ -34,6 +40,7 @@ export const startRegisterWithNameEmailPassowrd = (email, password, name) => {
         dispatch(login(user.uid, user.displayName));
       })
       .catch((e) => {
+        Swal.fire("Fail", e.message, "error");
         console.log(e);
       });
   };
