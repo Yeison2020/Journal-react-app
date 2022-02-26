@@ -6,7 +6,7 @@ import { startLoginEmailPassword, startGoogleLogin } from "../../actions/auth";
 const LoginScreen = () => {
   const [login, setLogin] = useState(false);
   const currentValues = useSelector((state) => state);
-  console.log(currentValues);
+
   const btn_status = currentValues.loadingButton.loadingbtn;
   const dispatch = useDispatch();
   const [values, handleInputChange, reset] = useForm({
