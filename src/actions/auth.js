@@ -1,14 +1,16 @@
 import types from "../types/types";
 import { firebase, googleAuthProvider } from "../firebase/firebaseConfig";
 // Note aadding the dispatch make our app to be asyn and wait for certains actions
-export const startLoginEmailPassword = (email, password, setter) => {
+export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
+    // Import to have my loading here: before my dispatch
+    dispatch(startLoading());
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        setter((curr) => (curr = true));
         dispatch(login(user.uid, user.displayName));
+        dispatch(finishLoading());
       })
       .then((e) => {
         console.log(e);
@@ -55,5 +57,23 @@ export const login = (uid, displayName) => {
   return {
     type: types.login,
     payload: { uid, displayName },
+  };
+};
+
+export const startLoading = () => {
+  return {
+    type: types.uiStartLoading,
+    payload: {
+      uiStartLoading: types.uiStartLoading,
+    },
+  };
+};
+
+export const finishLoading = () => {
+  return {
+    type: types.uiFinisheLoading,
+    payload: {
+      uiFinisheLoading: types.uiFinisheLoading,
+    },
   };
 };
