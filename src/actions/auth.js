@@ -77,3 +77,15 @@ export const finishLoading = () => {
     },
   };
 };
+
+//Notes when I add return (dispatch) make it async function
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch(logout());
+  };
+};
+
+export const logout = () => {
+  return { type: types.logout };
+};

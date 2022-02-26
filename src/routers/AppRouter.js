@@ -10,6 +10,8 @@ import JournalScreen from "../components/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 import { useDispatch } from "react-redux";
 import { login } from "../actions/auth";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -41,8 +43,18 @@ const AppRouter = () => {
       <Router>
         <div>
           <Switch>
-            <Route path="/auth" component={AuthRouter} />
-            <Route path="/" component={JournalScreen} />
+            <PrivateRoute
+              exact
+              isAuthenticated={isLoggedIn}
+              path="/"
+              component={JournalScreen}
+            />
+            <PublicRoute
+              exact
+              isAuthenticated={isLoggedIn}
+              component={AuthRouter}
+            />
+
             <Redirect to="/auth/login" />
           </Switch>
         </div>
