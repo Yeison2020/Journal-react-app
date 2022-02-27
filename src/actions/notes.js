@@ -1,4 +1,5 @@
 import { db } from "../firebase/firebaseConfig";
+import types from "../types/types";
 
 export const startNotes = () => {
   return async (dispatch, getState) => {
@@ -15,5 +16,16 @@ export const startNotes = () => {
       .collection(`${stateUID_USER}/journal/notes`)
       .add(newNote);
     console.log(doc);
+    dispatch(activeNotes(doc.id, newNote));
+  };
+};
+
+export const activeNotes = (id, note) => {
+  return {
+    type: types.notesActive,
+    payload: {
+      id,
+      ...note,
+    },
   };
 };
