@@ -35,7 +35,7 @@ const AppRouter = () => {
     });
   }, [dispatch]);
   if (checking) {
-    return <h1>Please Wait Checking user</h1>;
+    return <h1>Please Wait retrive Your data</h1>;
   }
 
   return (
