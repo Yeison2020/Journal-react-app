@@ -13,6 +13,7 @@ import { login } from "../actions/auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { loadNotes } from "../helpers/loadNotes";
+import { setNotes } from "../actions/notes";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -23,11 +24,12 @@ const AppRouter = () => {
 
   // Here is how I'm adding my current users to my redux states using this useEffect Notes: I need to fixed when user try to log in and Gets an errors in the UI login like password or incorrect email. There is a bug there when the btn gets the loading state.
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
         setIsLoggedIn(true);
         dispatch(login(user.uid, user.displayName));
-        loadNotes(user.uid);
+        const notes = await loadNotes(user.uid);
+        dispatch(setNotes(notes));
       } else {
         setIsLoggedIn(false);
       }
