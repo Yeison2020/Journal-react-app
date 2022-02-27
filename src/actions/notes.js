@@ -1,9 +1,9 @@
 import { db } from "../firebase/firebaseConfig";
 
 export const startNotes = () => {
-  return (dispatch, getState) => {
-    const state = getState().auth.uid;
-    console.log(state);
+  return async (dispatch, getState) => {
+    const stateUID_USER = getState().auth.uid;
+    console.log(stateUID_USER);
     const newNote = {
       title: "",
       body: "",
@@ -11,6 +11,9 @@ export const startNotes = () => {
     };
 
     // Here the path has to macth with firebase abd data structure of notes with newNote
-    const doc = db.collection(`${state}/journal/notes`).add(newNote);
+    const doc = await db
+      .collection(`${stateUID_USER}/journal/notes`)
+      .add(newNote);
+    console.log(doc);
   };
 };
