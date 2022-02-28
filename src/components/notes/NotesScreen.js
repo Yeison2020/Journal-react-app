@@ -31,9 +31,11 @@ const NotesScreen = () => {
           placeholder="What happend today"
           className="notes__text-area"
         ></textarea>
-        <div className="note__image">
-          <img src="https://s3.us-east-1.amazonaws.com/maxonsites/images/maxon/_800x418_crop_center-center_82_none/Universe_5_Hero.jpg?mtime=1630681085"></img>
-        </div>
+        {note.url && (
+          <div className="note__image">
+            <img src="https://s3.us-east-1.amazonaws.com/maxonsites/images/maxon/_800x418_crop_center-center_82_none/Universe_5_Hero.jpg?mtime=1630681085"></img>
+          </div>
+        )}
       </div>
     </div>
   );
