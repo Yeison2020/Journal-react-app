@@ -14,6 +14,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { loadNotes } from "../helpers/loadNotes";
 import { setNotes } from "../actions/notes";
+import { startLaodingNotes } from "../actions/notes";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -28,8 +29,7 @@ const AppRouter = () => {
       if (user?.uid) {
         setIsLoggedIn(true);
         dispatch(login(user.uid, user.displayName));
-        const notes = await loadNotes(user.uid);
-        dispatch(setNotes(notes));
+        dispatch(startLaodingNotes(user.uid));
       } else {
         setIsLoggedIn(false);
       }

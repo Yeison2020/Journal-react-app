@@ -1,6 +1,6 @@
 import { db } from "../firebase/firebaseConfig";
 import types from "../types/types";
-
+import { loadNotes } from "../helpers/loadNotes";
 export const startNotes = () => {
   return async (dispatch, getState) => {
     const stateUID_USER = getState().auth.uid;
@@ -34,5 +34,12 @@ export const setNotes = (notes) => {
   return {
     type: types.notesLoad,
     payload: notes,
+  };
+};
+
+export const startLaodingNotes = (uid) => {
+  return async (dispatch) => {
+    const notes = await loadNotes(uid);
+    dispatch(setNotes(notes));
   };
 };
