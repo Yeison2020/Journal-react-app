@@ -19,10 +19,12 @@ const NotesScreen = () => {
   //
   const activeIdRef = useRef(note.id);
 
-  // Import how my UseRef created a reference to acitve note
+  // Important  how my UseRef created a reference to acitve note
+  // Important to review later
   useEffect(() => {
     if (note.id !== activeIdRef.current) {
       reset(note);
+      activeIdRef.current = note.id;
     }
   }, [note, reset]);
 
