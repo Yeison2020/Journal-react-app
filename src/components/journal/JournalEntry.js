@@ -1,6 +1,6 @@
 import React from "react";
 
-const JournalEntry = () => {
+const JournalEntry = ({ id, date, title, body, url }) => {
   return (
     <div className="journal__entry">
       <div
