@@ -47,6 +47,12 @@ export const startLaodingNotes = (uid) => {
 export const startSaveNote = (note) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
+
+    // Here I can remove an element base on any changes
+    if (!note.url) {
+      delete note.url;
+    }
+
     const noteToFirestore = { ...note };
     delete noteToFirestore.id;
     await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
