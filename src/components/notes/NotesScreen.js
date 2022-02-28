@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import NoteAppBar from "./NoteAppBar";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
@@ -7,10 +7,24 @@ const NotesScreen = () => {
   // Adding this two : allow me to rename my variable from the Object
   const { active: note } = useSelector((state) => state.notes);
   console.log(note);
+
+  //
   const [formValues, handleInputChange, reset] = useForm(note);
   console.log(formValues);
+
+  //
   const { title, body } = formValues;
   console.log(title);
+
+  //
+  const activeIdRef = useRef(note.id);
+
+  // Import how my UseRef created a reference to acitve note
+  useEffect(() => {
+    if (note.id !== activeIdRef.current) {
+      reset(note);
+    }
+  }, [note, reset]);
 
   return (
     <div className="notes__main-content">
