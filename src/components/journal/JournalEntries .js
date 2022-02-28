@@ -8,8 +8,8 @@ const JournalEntries = () => {
 
   return (
     <div className="journal__entries">
-      {notes.map((note) => {
-        return <JournalEntry key={note.id} {...notes} />;
+      {notes?.map((note) => {
+        return <JournalEntry key={note.id} {...note} />;
       })}
     </div>
   );

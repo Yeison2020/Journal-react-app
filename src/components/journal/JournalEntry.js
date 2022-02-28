@@ -1,17 +1,19 @@
 import React from "react";
 
 const JournalEntry = ({ id, date, title, body, url }) => {
+  console.log(id, date, title, body, url);
   return (
     <div className="journal__entry">
-      <div
-        className="journal__entry-picture"
-        style={{
-          backgroundSize: "cover",
+      {url && (
+        <div
+          className="journal__entry-picture"
+          style={{
+            backgroundSize: "cover",
 
-          backgroundImage:
-            "url(https://images.r.cruisecritic.com/features/2016/06/tropic-hero.jpg)",
-        }}
-      ></div>
+            backgroundImage: `url(${url})`,
+          }}
+        ></div>
+      )}
       <div className="journal__entry-body">
         <p className="journal__entry-title">Nuevo day</p>
         <p className="journal__entry-content">
