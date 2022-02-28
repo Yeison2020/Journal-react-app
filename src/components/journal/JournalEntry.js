@@ -1,7 +1,10 @@
 import React from "react";
+import moment from "moment";
 
 const JournalEntry = ({ id, date, title, body, url }) => {
   console.log(id, date, title, body, url);
+  const noteDate = moment(date);
+  console.log(noteDate);
   return (
     <div className="journal__entry">
       {url && (
@@ -15,15 +18,11 @@ const JournalEntry = ({ id, date, title, body, url }) => {
         ></div>
       )}
       <div className="journal__entry-body">
-        <p className="journal__entry-title">Nuevo day</p>
-        <p className="journal__entry-content">
-          Occaecat laborum elit amet anim ipsum non veniam consequat. Ullamco
-          nulla do ea aliquip culpa. Fugiat nisi officia officia cillum aliquip
-          pariatur ipsum et ex incididunt.
-        </p>
+        <p className="journal__entry-title">{title}</p>
+        <p className="journal__entry-content">{body}</p>
         <div className="journal__entry-date-box">
-          <span>Friday</span>
-          <h4>18</h4>
+          <span>{noteDate.format("dddd")}</span>
+          <h4>{noteDate.format("Do")}</h4>
         </div>
       </div>
     </div>
