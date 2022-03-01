@@ -56,5 +56,19 @@ export const startSaveNote = (note) => {
     const noteToFirestore = { ...note };
     delete noteToFirestore.id;
     await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
+
+    // Here is not the right way to do it.
+    dispatch(refreshNote(note.id, noteToFirestore));
+    // dispatch(startLaodingNotes(uid));
+  };
+};
+
+export const refreshNote = (id, note) => {
+  return {
+    type: types.notesUpdated,
+    payload: {
+      id,
+      note,
+    },
   };
 };
