@@ -68,7 +68,10 @@ export const refreshNote = (id, note) => {
     type: types.notesUpdated,
     payload: {
       id,
-      note,
+      note: {
+        id,
+        note,
+      },
     },
   };
 };
