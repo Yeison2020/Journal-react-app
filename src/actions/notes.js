@@ -1,6 +1,7 @@
 import { db } from "../firebase/firebaseConfig";
 import types from "../types/types";
 import { loadNotes } from "../helpers/loadNotes";
+import Swal from "sweetalert2";
 export const startNotes = () => {
   return async (dispatch, getState) => {
     const stateUID_USER = getState().auth.uid;
@@ -59,7 +60,7 @@ export const startSaveNote = (note) => {
 
     // Here is not the right way to do it.
     dispatch(refreshNote(note.id, noteToFirestore));
-    // dispatch(startLaodingNotes(uid));
+    Swal.fire("Saved", note.title, "success");
   };
 };
 
