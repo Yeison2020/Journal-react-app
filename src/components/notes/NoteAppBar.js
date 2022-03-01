@@ -1,7 +1,6 @@
 import React from "react";
 import { startSaveNote } from "../../actions/notes";
 import { useDispatch, useSelector } from "react-redux";
-export const cloudinary = require("cloudinary").v2;
 
 const NoteAppBar = () => {
   const { active: note } = useSelector((state) => state.notes);
@@ -11,22 +10,20 @@ const NoteAppBar = () => {
     dispatch(startSaveNote(note));
   };
 
-  const image = cloudinary.createUploadWidget(
-    {
-      cloudName: "yeison695enmanuel",
-      uploadPresent: "New Image",
-    },
-    function (error, result) {
-      console.log(error, result);
-    }
-  );
+  // const image = cloudinary.createUploadWidget(
+  //   {
+  //     cloudName: "yeison695enmanuel",
+  //     uploadPresent: "New Image",
+  //   },
+  //   function (error, result) {
+  //     console.log(error, result);
+  //   }
+  // );
   return (
     <div className="note__appbar">
       <span>18 Febrerro 2022</span>
       <div>
-        <button className="btn" onClick={image.open()}>
-          Picture
-        </button>
+        <button className="btn">Picture</button>
 
         <button className="btn" onClick={handleSaveNote}>
           Save
