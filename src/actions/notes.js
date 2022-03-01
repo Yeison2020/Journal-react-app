@@ -70,7 +70,7 @@ export const refreshNote = (id, note) => {
       id,
       note: {
         id,
-        note,
+        ...note,
       },
     },
   };
